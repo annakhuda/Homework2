@@ -1,9 +1,6 @@
 package com.annakhuda.automation;
 
 import java.util.Arrays;
-import java.util.Scanner;
-
-import static com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver.length;
 
 public class Main {
     public static void main(String[] args) {
