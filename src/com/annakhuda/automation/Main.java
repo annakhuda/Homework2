@@ -49,7 +49,7 @@ public class Main {
     }
 
     public static int[] duplicates(int[] arr) {
-        int[] duplFull = new int[10];
+        int[] duplFull = new int[arr.length];
         int z = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = i + 1; j < arr.length; j++) {
