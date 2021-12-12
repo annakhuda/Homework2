@@ -4,20 +4,32 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+        // Task 1
         System.out.println("The result of the first task is: " + (74 + 36));
+
+        // Task 2
         System.out.println("\nSecond task, a variant: " + (-5 + 8 * 6));
         System.out.println("Second task, b variant: " + ((55 + 9) % 9));
         System.out.println("Second task, c variant: " + (20 + -3 * 5 / 8));
         System.out.println("Second task d variant: " + (5 + 15 / 3 * 2 - 8 % 3));
-        System.out.println("\n125 + 24 = " + sum(125, 24));
-        System.out.println("125 - 24 = " + subtract(125, 24));
-        System.out.println("125 x 24 = " + multiply(125, 24));
-        System.out.println("125 / 24 = " + divide(125, 24));
-        System.out.println("125 mod 24 = " + mod(125, 24));
+
+        // Task 3
+        int firstNumber = 125;
+        int secondNumber = 24;
+        System.out.println("\n125 + 24 = " + sum(firstNumber, secondNumber));
+        System.out.println("125 - 24 = " + subtract(firstNumber, secondNumber));
+        System.out.println("125 x 24 = " + multiply(firstNumber, secondNumber));
+        System.out.println("125 / 24 = " + divide(firstNumber, secondNumber));
+        System.out.println("125 mod 24 = " + mod(firstNumber, secondNumber));
+
+        // Task 4
         int[] arr = {5, 6, 7, 12, -5, 32, 43};
-        int[] duplicatesArr = {5, 6, 7, 12, -5, 32, 43, 6, 12};
         System.out.println("\nThe sum of the elements of array is: " + arraySum(arr));
-        System.out.println("\nDuplicates of the array: " + Arrays.toString(duplicates(duplicatesArr)));
+
+        // Task 5
+        int[] arrayWithDuplicates = {5, 6, 7, 12, -5, 32, 43, 6, 12};
+        System.out.println("\nDuplicates of the array: " + Arrays.toString(findDuplicates(arrayWithDuplicates)));
+
     }
 
     public static int sum(int firstNum, int secondNum) {
@@ -42,27 +54,27 @@ public class Main {
 
     public static int arraySum(int[] arr) {
         int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
+        for (int num : arr) {
+            sum += num;
         }
         return sum;
     }
 
-    public static int[] duplicates(int[] arr) {
-        int[] duplFull = new int[arr.length];
-        int z = 0;
+    public static int[] findDuplicates(int[] arr) {
+        int[] duplicatesBuffer = new int[arr.length];
+        int duplicatesCount = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[j] == arr[i]) {
-                    duplFull[z] = arr[j];
-                    z++;
+                    duplicatesBuffer[duplicatesCount] = arr[j];
+                    duplicatesCount++;
                 }
             }
         }
-        int[] dupl = new int[z];
-        for (int i = 0; i < dupl.length; i++) {
-            dupl[i] = duplFull[i];
+        int[] duplicates = new int[duplicatesCount];
+        for (int i = 0; i < duplicates.length; i++) {
+            duplicates[i] = duplicatesBuffer[i];
         }
-        return dupl;
+        return duplicates;
     }
 }
